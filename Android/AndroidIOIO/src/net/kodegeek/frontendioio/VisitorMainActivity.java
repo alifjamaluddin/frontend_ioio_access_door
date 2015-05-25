@@ -54,8 +54,8 @@ public class VisitorMainActivity extends ActionBarActivity {
 		btnCapturePicture = (Button) findViewById(R.id.btnCapturePicture);
 		// btnRecordVideo = (Button) findViewById(R.id.btnRecordVideo);
 		Intent intent = getIntent();
-		userID = intent.getStringExtra(WorkerLoginActivity.ID);
-		showAlert("Please take a picture to complete your check in.");
+		userID = intent.getStringExtra("id");
+//		showAlert("Please take a picture to complete your check in.");
 		/**
 		 * Capture image button click event
 		 */

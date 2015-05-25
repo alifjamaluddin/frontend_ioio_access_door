@@ -57,7 +57,7 @@ public class VisitorLoginActivity extends Activity {
 
 	public void redirect(String id) {
 		Intent intent = new Intent(this, VisitorMainActivity.class);
-		intent.putExtra("id", userID);
+		intent.putExtra("id", id);
 		
 		startActivity(intent);
 	}
@@ -105,7 +105,7 @@ public class VisitorLoginActivity extends Activity {
 			con.setRequestProperty("User-Agent", USER_AGENT);
 			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-			String urlParameters = "name=" + name+"&company="+company+"&meet="+meet+"&reason="+reason;
+			String urlParameters = "name=" + name+"&company="+company+"&with="+meet+"&reason="+reason;
 
 			// Send post request
 			con.setDoOutput(true);
@@ -126,7 +126,7 @@ public class VisitorLoginActivity extends Activity {
 
 			}
 			in.close();
-
+		
 			JSONObject resultObj;
 			try {
 				resultObj = new JSONObject(response);
@@ -146,6 +146,7 @@ public class VisitorLoginActivity extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			return responseString;
 		}
 
@@ -153,9 +154,9 @@ public class VisitorLoginActivity extends Activity {
 		protected void onPostExecute(String result) {
 
 			if (result.equals("success")) {
-				String id = userID;
-				redirect(id);
-				// showAlert(result);
+				
+				
+				 showAlert(result);
 
 			} else if (result.equals("failed")) {
 				showAlert("Login fail");
@@ -182,6 +183,7 @@ public class VisitorLoginActivity extends Activity {
 				});
 		AlertDialog alert = builder.create();
 		alert.show();
+		redirect(userID);
 	}
 	
 	

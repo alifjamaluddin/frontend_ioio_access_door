@@ -159,8 +159,9 @@ public class UploadActivity extends Activity {
 		@SuppressWarnings("deprecation")
 		private String uploadFile() {
 			String responseString = null;
-
+			System.setProperty("http.keepAlive", "false");
 			HttpClient httpclient = new DefaultHttpClient();
+			
 			HttpPost httppost = new HttpPost(Config.HOST + "/fileUpload.php"
 					+ "?id=" + userID);
 
@@ -184,6 +185,7 @@ public class UploadActivity extends Activity {
 
 				totalSize = entity.getContentLength();
 				httppost.setEntity(entity);
+				
 
 				// Making server call
 				HttpResponse response = httpclient.execute(httppost);

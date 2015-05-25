@@ -80,7 +80,7 @@ public class VisitorUploadActivity extends Activity {
 
 		// boolean flag to identify the media type, image or video
 		boolean isImage = i.getBooleanExtra("isImage", true);
-		ID = i.getStringExtra("id");
+		ID = i.getStringExtra("user_id");
 
 		if (filePath != null) {
 			// Displaying the image or video on the screen
@@ -159,10 +159,11 @@ public class VisitorUploadActivity extends Activity {
 		@SuppressWarnings("deprecation")
 		private String uploadFile() {
 			String responseString = null;
-
+			System.setProperty("http.keepAlive", "false");
 			HttpClient httpclient = new DefaultHttpClient();
-			HttpPost httppost = new HttpPost("http://192.168.0.12/attendancesystem/visitorFileUpload.php?ID="+ ID);
-
+			String url = Config.HOST + "visitorFileUpload.php?id="+ ID;
+			HttpPost httppost = new HttpPost(url);
+			Log.e("URL", url);
 			try {
 				AndroidMultiPartEntity entity = new AndroidMultiPartEntity(
 						new ProgressListener() {
@@ -179,7 +180,7 @@ public class VisitorUploadActivity extends Activity {
 				entity.addPart("image", new FileBody(sourceFile));
 
 				// Extra parameters if you want to pass to server
-				entity.addPart("id", new StringBody(ID));
+//				entity.addPart("id", new StringBody(ID));
 
 				totalSize = entity.getContentLength();
 				httppost.setEntity(entity);
