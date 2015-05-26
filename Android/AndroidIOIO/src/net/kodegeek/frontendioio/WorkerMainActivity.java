@@ -24,10 +24,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class WorkerMainActivity extends ActionBarActivity {
 
 	// LogCat tag
-	private static final String TAG = MainActivity.class.getSimpleName();
+	private static final String TAG = WorkerMainActivity.class.getSimpleName();
 
 	// Camera activity request codes
 	private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -208,7 +208,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private void launchUploadActivity(boolean isImage) {
-		Intent i = new Intent(MainActivity.this, UploadActivity.class);
+		Intent i = new Intent(WorkerMainActivity.this, WorkerUploadActivity.class);
 		i.putExtra("filePath", fileUri.getPath());
 		i.putExtra("isImage", isImage);
 		i.putExtra("user_id", userID);

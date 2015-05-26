@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import net.kodegeek.frontendioio.AndroidMultiPartEntity.ProgressListener;
+import net.kodegeek.frontendioio.AndroidMultiPartEntity.*;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -43,9 +43,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class UploadActivity extends Activity {
+public class WorkerUploadActivity extends Activity {
 	// LogCat tag
-	private static final String TAG = MainActivity.class.getSimpleName();
+	private static final String TAG = WorkerMainActivity.class.getSimpleName();
 
 	private ProgressBar progressBar;
 	private String filePath = null;
@@ -56,7 +56,7 @@ public class UploadActivity extends Activity {
 	long totalSize = 0;
 	String userID;
 	private final String USER_AGENT = "Mozilla/5.0";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -235,6 +235,7 @@ public class UploadActivity extends Activity {
 			// showing the server response in an alert dialog
 			if(result.equals("success")){
 				showAlert(result+" and open door function should be called here");
+				
 			}
 			else{
 				showAlert(result+" <= error");
@@ -246,6 +247,8 @@ public class UploadActivity extends Activity {
 
 	}
 
+	
+	
 	/**
 	 * Method to show alert dialog
 	 * */

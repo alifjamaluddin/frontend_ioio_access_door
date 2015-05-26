@@ -68,7 +68,7 @@ public class WorkerLoginActivity extends Activity {
 	}
 
 	public void redirect(String id) {
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, WorkerMainActivity.class);
 		intent.putExtra(ID, id);
 		startActivity(intent);
 	}
@@ -106,6 +106,8 @@ public class WorkerLoginActivity extends Activity {
 			HttpURLConnection con = null;
 			try {
 				con = (HttpURLConnection) obj.openConnection();
+				System.setProperty("http.keepAlive", "true");
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

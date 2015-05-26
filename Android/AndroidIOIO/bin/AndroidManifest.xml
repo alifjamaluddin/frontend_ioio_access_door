@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="net.kodegeek.frontendioio.UploadActivity"
+            android:name="net.kodegeek.frontendioio.WorkerUploadActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -40,7 +40,7 @@
             android:screenOrientation="portrait" >
         </activity>
          <activity
-            android:name="net.kodegeek.frontendioio.MainActivity"
+            android:name="net.kodegeek.frontendioio.WorkerMainActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity

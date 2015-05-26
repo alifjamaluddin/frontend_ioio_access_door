@@ -45,7 +45,7 @@ import android.widget.VideoView;
 
 public class VisitorUploadActivity extends Activity {
 	// LogCat tag
-	private static final String TAG = MainActivity.class.getSimpleName();
+	private static final String TAG = WorkerMainActivity.class.getSimpleName();
 
 	private ProgressBar progressBar;
 	private String filePath = null;
