@@ -234,7 +234,8 @@ public class WorkerUploadActivity extends Activity {
 
 			// showing the server response in an alert dialog
 			if(result.equals("success")){
-				showAlert(result+" and open door function should be called here");
+				showAlert(result+" DOOR OPEN");
+				redirect();
 				
 			}
 			else{
@@ -264,5 +265,12 @@ public class WorkerUploadActivity extends Activity {
 		AlertDialog alert = builder.create();
 		alert.show();
 	}
+
+	public void redirect() {
+		Intent intent = new Intent(this, MenuMain.class);
+	
+		startActivity(intent);
+	}
+
 
 }
